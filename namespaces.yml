@@ -1,4 +1,4 @@
-apiVersion: V1
-kind: namespace
+apiVersion: v1
+kind: Namespace
 metadata:
-  name: ramakrishna
+  name: testing-env
