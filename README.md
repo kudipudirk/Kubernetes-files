@@ -1,27 +1,40 @@
-1. Set up kubectl and eksctl
---https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#kubectl-install-update
-2. Download the kubectl binary for your cluster’s Kubernetes version from Amazon S3.
-Kubernetes 1.33
-3. curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
-4. Check the SHA-256 checksum for your downloaded binary with one of the following commands.
-    sha256sum -c kubectl.sha256
-5. Apply execute permissions to the binary.
-    chmod +x ./kubectl
-6. Copy the binary to a folder in your PATH. If you have already installed a version of kubectl, then we recommend creating a $HOME/bin/kubectl and ensuring that $HOME/bin comes first in your $PATH.
-    mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
-7. (Optional) Add the $HOME/bin path to your shell initialization file so that it is configured when you open a shell.
-    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+# Kubernetes CLI Setup for Amazon EKS
 
-1. install eksctl
-# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
-ARCH=amd64
-PLATFORM=$(uname -s)_$ARCH
+This guide explains how to set up `kubectl` and `eksctl` to work with Amazon EKS on a Linux system.
 
-curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+---
 
-# (Optional) Verify checksum
-curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+## ✅ Prerequisites
 
-tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+- AWS account with IAM user/role that has EKS permissions
+- AWS CLI configured (`aws configure`)
+- `curl`, `tar`, and `jq` installed
 
-sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
+---
+
+## 🔧 1. Install eksctl
+
+```bash
+curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+
+## 🔧 1. Install kubectl
+
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin
+kubectl version --client
+
+Note: Update the version as needed: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+
+## 🛠️ 3. Configure AWS CLI
+aws configure
+Enter:
+Access Key ID
+Secret Access Key
+
+🚀 4. Create an EKS Cluster
+
+eksctl create cluster -f < file_name >
+
