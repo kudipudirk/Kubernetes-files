@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
-  Namespace: testing-env
+  namespace: testing-env
 spec:
   containers:
   - name: my-nginx
