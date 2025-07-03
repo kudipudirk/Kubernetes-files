@@ -24,7 +24,7 @@ spec:
 kind: Pod
 apiVersion: v1
 metadata:
-  name: my-Pod
+  name: my-pod
   labels:
     app: my-app
   namespace: testing
