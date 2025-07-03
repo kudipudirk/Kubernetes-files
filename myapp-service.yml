@@ -4,7 +4,7 @@ metadata:
   name: myapp-service
   namespace: testing-env
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: myapp
   ports:
