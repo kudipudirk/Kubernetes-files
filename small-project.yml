@@ -6,9 +6,9 @@ metadata:
 ---
 
 apiVersion: v1
-kind: Services
+kind: Service
 metadata:
-  name: nginx-Service
+  name: nginx-service
   namespace: testing
 spec:
   type: NodePort
