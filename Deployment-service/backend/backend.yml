@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: testing-env
+  namespace: testing
   labels:
     app: backend
     tier: connection
@@ -27,7 +27,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: backend
-  namespace: testing-env
+  namespace: testing
 spec:
   selector: # labels are used as selectors
     app: backend
