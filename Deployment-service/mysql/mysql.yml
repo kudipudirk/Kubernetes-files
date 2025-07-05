@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: kudipudirk/mysql
+        image: joindevops/mysql:1.0.0
 
 ---
 
