@@ -26,12 +26,12 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: mysql-service
+  name: backend
   namespace: testing-env
 spec:
   selector: # labels are used as selectors
-    app: mysql
-    tier: database
+    app: backend
+    tier: connection
   ports:
   - protocol: TCP
     port: 8080 # service port
