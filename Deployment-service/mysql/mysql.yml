@@ -1,0 +1,25 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: testing-env
+  labels:
+    app: mysql
+    tier: database
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysql
+      tier: database
+  template:
+    metadata:
+    - name: mysql
+      labels:
+        app: mysql
+        tier: database
+    spec:
+      conatiners:
+      - name: mysql
+        image: kudipudirk/mysql
+
