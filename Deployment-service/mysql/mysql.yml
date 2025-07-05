@@ -22,3 +22,19 @@ spec:
       - name: mysql
         image: kudipudirk/mysql
 
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  app: mysql-service
+  namespace: testing-env
+spec:
+  selector: # labels are used as selectors
+    app: mysql
+    tier: database
+  ports:
+  - protocol: TCP
+    port: 3306 # service port
+    targetPort: 3306
+

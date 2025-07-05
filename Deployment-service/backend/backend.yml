@@ -21,5 +21,18 @@ spec:
       containers:
       - name: backend
         image: kudipudirk/backend
-        port:
-        - containerPort: 8080
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  app: mysql-service
+  namespace: testing-env
+spec:
+  selector: # labels are used as selectors
+    app: mysql
+    tier: database
+  ports:
+  - protocol: TCP
+    port: 8080 # service port
+    targetPort: 8080
