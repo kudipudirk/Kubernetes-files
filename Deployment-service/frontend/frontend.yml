@@ -23,6 +23,8 @@ spec:
         image: kudipudirk/frontend
         ports:
         - containerPort: 8080
+        securityContext:
+          runAsUser: 0
 ---
 
 apiVersion: v1
