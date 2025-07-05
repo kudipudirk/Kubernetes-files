@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: testing-env
+  labels:
+    app: backend
+    tier: connection
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+      tier: connection
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: connectionr
+    spec:
+      containers:
+      - name: backend
+        image: kudipudirk/backend
+        ports:
+        - containerPort: 3306
