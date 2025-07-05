@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         app: backend
-        tier: connectionr
+        tier: connection
     spec:
       containers:
       - name: backend
