@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: joindevops/frontend:1.2.0
+        image: kudipudirk/frontend
         ports:
         - containerPort: 8080
         securityContext:
