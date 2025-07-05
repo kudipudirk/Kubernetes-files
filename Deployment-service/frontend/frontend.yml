@@ -19,7 +19,7 @@ spec:
         tier: web
     spec:
       containers:
-      - name: frontend
+      - name: nginx
         image: kudipudirk/frontend
         ports:
         - containerPort: 8080
@@ -36,5 +36,5 @@ spec:
     tier: web
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 8080
