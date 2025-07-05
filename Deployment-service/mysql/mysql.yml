@@ -27,7 +27,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  app: mysql-service
+  name: mysql-service
   namespace: testing-env
 spec:
   selector: # labels are used as selectors
