@@ -19,7 +19,7 @@ spec:
         app: mysql
         tier: database
     spec:
-      conatiners:
+      containers:
       - name: mysql
         image: kudipudirk/mysql
 
