@@ -21,3 +21,5 @@ spec:
       containers:
       - name: backend
         image: kudipudirk/backend
+        port:
+        - containerPort: 8080
