@@ -18,6 +18,8 @@ spec:
 
 # tainted to node command
 # kubectl taint nodes node01 spray=mortein:NoSchedule
+# untainted to node command
+# kubectl taint nodes node01 spray=mortein:NoSchedule-
 # there are three effect: 1. NoSchedule, 2. NoExecute, 3. preferNoSchedule
 
 # command: kubectl taint nodes <Node-Name> key=value:effect-name
