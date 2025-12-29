@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bee
+spec:
+  containers:
+  - image: nginx
+    name: bee
+  tolerations:
+  - key: spray
+    value: mortein
+    effect: NoSchedule
+    operator: Equal
+
+
+# if we have tainted to nodes then we will give tolerations if not the pod is in pending state otherwise it's running 
+
+# tainted to node command
+# kubectl taint nodes node01 spray=mortein:NoSchedule
+# there are three effect: 1. NoSchedule, 2. NoExecute, 3. preferNoSchedule
+
+# command: kubectl taint nodes <Node-Name> key=value:effect-name
