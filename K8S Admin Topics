@@ -1,0 +1,12 @@
+K8S Admin Topics:
+1. TLS Basics 
+2. TLS Certificates and types of TLS and Certificates
+3. TLS Certificates Creation
+4. KubeConfig
+5. API Groups
+6. Authorization and Types and Modes in K8s
+7. Role and RoleBindings it is namespace based roles
+8. ClusterRole and ClusterRoleBinding it is cluster based roles
+9. Service Accounts
+10. Security Contexts
+11. Network Policies
